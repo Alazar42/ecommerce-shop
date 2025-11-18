@@ -19,7 +19,7 @@ This project includes CRUD functionality, theme switching, toast notifications, 
 
 ---
 
-## 📦 Installation & Setup (using npm)
+## Installation & Setup (using npm)
 
 ### 1. Clone the repository
 
@@ -48,7 +48,7 @@ http://localhost:3000
 
 ---
 
-## 🏗️ Build for production
+## Build for production
 
 ```bash
 npm run build
@@ -62,7 +62,7 @@ npm start
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ecommerce-shop/
