@@ -49,7 +49,7 @@ export function AuthLogin({ onSuccess }: AuthLoginProps) {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       
       localStorage.setItem('auth_user', JSON.stringify({ email: data.email }))
-      dispatch(setAuth({ email: data.email })) // <-- update Redux store
+      dispatch(setAuth({ email: data.email }))
       toast.success('Logged in successfully!')
       form.reset()
       onSuccess?.()
@@ -64,7 +64,11 @@ export function AuthLogin({ onSuccess }: AuthLoginProps) {
     <Card className="w-full max-w-md">
       <CardHeader>
         <CardTitle>Login to Shop</CardTitle>
+        <p className="text-sm text-muted-foreground mt-1">
+          This is a test — any email & password works.
+        </p>
       </CardHeader>
+
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -75,16 +79,13 @@ export function AuthLogin({ onSuccess }: AuthLoginProps) {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input
-                      type="email"
-                      placeholder="your@email.com"
-                      {...field}
-                    />
+                    <Input type="email" placeholder="your@email.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="password"
@@ -92,21 +93,14 @@ export function AuthLogin({ onSuccess }: AuthLoginProps) {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      placeholder="••••••••"
-                      {...field}
-                    />
+                    <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isLoading}
-            >
+
+            <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
